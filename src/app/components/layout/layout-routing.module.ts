@@ -7,6 +7,7 @@ const dirDependencias = './menu-inventario-infor/mantenimientos/dependencias/';
 const dirMenuInformatica = './menu-informatica/';
 const dirMenuRRHH = './menu-rrhh/';
 const dirMenuExpedientes = './sistema_de_expedientes/';
+const dirMenuPuntoAtencion= './menu-punto-atencion/';
 
 const routes: Routes = [
   {
@@ -17,6 +18,13 @@ const routes: Routes = [
       // {path: '', redirectTo: 'inicio'},
       // Rutas para Sima
       // path: 'menu-sima/panel-de-control/menu-lateral/form-new/:id_padre/:nivel_actual',
+      {
+        path: '',
+        loadChildren: dirMenuPuntoAtencion + 'm-lugar-fisico/lugar-fisico/lugar-fisico.module#MenuLugarFisico',
+        canActivate: [AuthorizationGuard]
+      },
+      
+            
       {
         path: '',
         loadChildren: dirMenuInformatica + 'dashboard_general/dashboard_soporte/dashboard.module#MenuSoporteModule',
